@@ -24,20 +24,191 @@
 </head>
 
 <body>
-	<noscript>
-		You need to enable JavaScript to run this app.
-	</noscript>
-	<div id="root"></div>
-	<!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+ 
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <video id="myVideo" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+    <source src="https://www.rejouice.com/videos/RJ-BALL-BLUE-ORANGE.webm" type="video/webm">
+    </video>
+  
+  <div class="close open"></div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+  
+   
+ 
+
+  <div id="mydiv" class="stretchcontainer">
+
+    <div class="sliderparentdiv">
+      <div class="textdivbreakout">
+        <div class="title">NO FUN </div>
+        <div class="body1">REALLY NOT</div>
+        <div class="body2">Dont give up on the foundational prinicipial of an inequivical barbeque.</div>
+      </div>
+      <div  class="imagediv">
+        <div class="r3f"id="r1"></div>
+      </div>
+      <div class="lilimage img1"></div>
+    </div>
+    <div class="sliderparentdiv">
+      <div class="textdivbreakout">
+        <div class="title">NO FUN </div>
+        <div class="body1">REALLY NOT</div>
+        <div class="body2">Dont give up on the foundational prinicipial of an inequivical barbeque.</div>
+      </div>
+      <div  class="imagediv">
+        <div class="r3f" id="r2"></div>
+      </div>
+      <div class="lilimage img2"></div>
+    </div>
+    <div class="sliderparentdiv">
+      <div class="textdivbreakout">
+        <div class="title">NO FUN </div>
+        <div class="body1">REALLY NOT</div>
+        <div class="body2">Dont give up on the foundational prinicipial of an inequivical barbeque </div>
+      </div>
+      <div  class="imagediv">
+        <div class="r3f" id="r3"></div>
+      </div>
+      <div class="lilimage img3"></div>
+    </div>
+    <div class="sliderparentdiv">
+      <div class="textdivbreakout">
+        <div class="title">NO FUN </div>
+        <div class="body1">REALLY NOT</div>
+        <div class="body2">Dont give up on the foundational prinicipial of an inequivical barbeque.</div>
+      </div>
+      <div  class="imagediv">
+        <div class="r3f" id="r4"></div>
+      </div>
+      <div class="lilimage img4"></div>
+    </div>
+    
+    <div class="sliderparentdiv">
+      <div class="textdivbreakout">
+        <div class="title">NO FUN </div>
+        <div class="body1">REALLY NOT</div>
+        <div class="body2">Dont give up on the foundational prinicipial of an inequivical barbeque.</div>
+      </div>
+      <div  class="imagediv">
+        <div class="r3f" id="r5"></div>
+     </div>
+      <div class="lilimage img5"></div>
+    </div>
+    
+    <div id="root"></div>
+   
+  </div>
+  
+
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=63cd78dc1a2c842ad87d92e0" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 </body>
+<script>
+//reveal r3f view animating height from 0 - 100
+$( "#r5" ).mousedown(function() {
+     
+      setTimeout(() => { $('.a5').addClass('hoverclass')}, 150);
+    
+});
+$( "#r4" ).mousedown(function() {
+     
+     setTimeout(() => { $('.a4').addClass('hoverclass')}, 150);
+   
+});
+
+$( "#r3" ).mousedown(function() {
+     
+     setTimeout(() => { $('.a3').addClass('hoverclass')}, 150);
+   
+});
+$( "#r2" ).mousedown(function() {
+     
+     setTimeout(() => { $('.a2').addClass('hoverclass')}, 150);
+   
+});
+$( "#r1" ).mousedown(function() {
+     
+     setTimeout(() => { $('.a1').addClass('hoverclass')}, 150);
+   
+});
+
+//append react components
+setTimeout(() => {
+  console.log('fired');
+//$(".view a1").prependTo("#r1");
+jQuery(".a1").detach().prependTo('#r1')
+jQuery(".a2").detach().appendTo('#r2')
+jQuery(".a3").detach().appendTo('#r3')
+jQuery(".a4").detach().appendTo('#r4')
+jQuery(".a5").detach().appendTo('#r5')
+
+}, 3000);
+
+var count = 0;
+var btnContainer = document.getElementById("mydiv");
+
+// Get all buttons with class="btn" inside the container
+var btns = btnContainer.getElementsByClassName("sliderparentdiv");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("mouseenter", function() {
+ var image = this.getElementsByClassName("imagediv")[0];
+  
+  
+
+    var current = document.getElementsByClassName("hoveractive");
+    var notcurrent= document.getElementsByClassName("hovernotactive");
+    var imghover= document.getElementsByClassName("newhover");
+
+    // If there's no active class
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" hoveractive", "");
+    }
+   
+     if (notcurrent.length < 1) {
+     $('.sliderparentdiv').addClass('hovernotactive');
+      
+     
+    }
+    
+    if (count < 1){
+    // Add the active class to the current/clicked button
+    $('.imagediv').removeClass('newhover');
+    this.className += " hoveractive";
+    image.className += " newhover";
+    //setTimeout(() => {image.className += " newhover";}, 100);
+    }
+    
+    
+    //mouse click full
+     $( ".sliderparentdiv" ).mousedown(function() {
+      $('.stretchcontainer').addClass('fullguy')
+     $('.sliderparentdiv').removeClass('hovernotactive').addClass(' hoverzero');
+     count+=1;
+     this.className -= "hoverzero";
+     this.className = " sliderparentdiv hoverfull";
+     $('.close').removeClass('open');
+});
+
+    //mouse click close
+$( ".close" ).mousedown(function() {
+  $('.sliderparentdiv').removeClass('hoverfull').removeClass('hoverzero');
+  $('.view').removeClass(' hoverclass')
+ 
+  //this.className += " hoverzero";
+  $('.stretchcontainer').removeClass('fullguy')
+ 
+$('.sliderparentdiv').addClass('sliderparentdiv');
+setTimeout(() => {$('.close').addClass('open');
+count =0;
+$('.imagediv').removeClass('newhover');}, 150);
+  
+  
+});
+
+    
+  });
+}
+  </script>
 
 </html>
